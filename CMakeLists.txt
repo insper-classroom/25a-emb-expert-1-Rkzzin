@@ -20,7 +20,7 @@ set(PICO_BOARD pico_w)
 # note: this must happen before project()
 include(pico_sdk_import.cmake)
 
-project(mqtt/pico_emb)
+project(main/pico_emb)
 
 # initialize the Pico SDK
 pico_sdk_init()
@@ -36,5 +36,5 @@ if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
 endif()
 
 add_subdirectory(freertos)
-add_subdirectory(mqtt)
+add_subdirectory(main)
 
