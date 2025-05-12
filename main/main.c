@@ -111,13 +111,14 @@ static float read_onboard_temperature(const char unit) {
     float adc = (float)adc_read() * conversionFactor;
     float tempC = 27.0f - (adc - 0.706f) / 0.001721f;
 
-    if (unit == 'C' || unit != 'F') {
+    if (unit == 'C') {
         return tempC;
     } else if (unit == 'F') {
-        return tempC * 9 / 5 + 32;
+        return tempC * 9.0f / 5.0f + 32.0f;
+    } else {
+        // invalid unit: default to Celsius (or handle error)
+        return tempC;
     }
-
-    return -1.0f;
 }
 
 static int read_luminosity() {
