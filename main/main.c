@@ -33,6 +33,7 @@
 
 // This file includes your client certificate for client server authentication
 #ifdef MQTT_CERT_INC
+// cppcheck-suppress preprocessorErrorDirective
 #include MQTT_CERT_INC
 #endif
 
