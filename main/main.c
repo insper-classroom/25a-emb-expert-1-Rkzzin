@@ -31,9 +31,13 @@
 #error Need to define MQTT_SERVER
 #endif
 
+#ifndef MQTT_CERT_INC
+// If MQTT_CERT_INC wasn’t defined by the build, point it at our dummy
+#  define MQTT_CERT_INC "no_cert.h"
+#endif
+
 // This file includes your client certificate for client server authentication
 #ifdef MQTT_CERT_INC
-// cppcheck-suppress preprocessorErrorDirective
 #include MQTT_CERT_INC
 #endif
 
